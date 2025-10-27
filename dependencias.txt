@@ -1,0 +1,21 @@
+npm i -D typescript tsx @types/node @biomejs/biome
+npx tsc --init
+
+https://github.com/tsconfig/bases
+
+// Adicionar o paths alias no tsconfig
+  "paths": {
+    "@/*": ["./src/*"]
+  }
+
+npx @biomejs/biome init
+// https://biomejs.dev/guides/editors/first-party-extensions/#vs-code
+
+
+// https://fastify.dev/
+// https://github.com/fastify/fastify-cors
+// https://github.com/fastify/fastify-swagger
+// https://github.com/scalar/scalar/tree/main/integrations/fastify
+// https://github.com/turkerdev/fastify-type-provider-zod
+
+npm i fastify @fastify/cors @fastify/swagger @scalar/fastify-api-reference fastify-type-provider-zod zod http-status-codes
