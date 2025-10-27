@@ -1,6 +1,8 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { StatusCodes } from 'http-status-codes'
 import { z } from 'zod'
+import { db } from '@/db'
+import { webhooks } from '@/db/schema'
 
 export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
   app.get(
@@ -26,6 +28,9 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
       },
     },
     async (_request, reply) => {
+      const webhooksList = await db.select().from(webhooks)
+      console.log('🚀 ~ listWebhooks ~ webhooksList:', webhooksList)
+
       return reply.send({
         webhooks: [
           { id: 'wh_1', method: 'POST' },

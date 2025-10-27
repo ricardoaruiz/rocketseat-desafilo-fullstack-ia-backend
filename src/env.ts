@@ -5,6 +5,7 @@ const ENV_SCHEMA = z.object({
     .enum(['development', 'production', 'test'])
     .default('development'),
   PORT: z.coerce.number().default(3333),
+  DATABASE_URL: z.url(),
 })
 
 export const env = ENV_SCHEMA.parse(process.env)

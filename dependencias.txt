@@ -1,21 +1,33 @@
-npm i -D typescript tsx @types/node @biomejs/biome
+====================================================================
+Dependencias de desenvolvimento
+npm i -D typescript tsx @types/node @biomejs/biome drizzle-kit @types/pg
 npx tsc --init
 
+TSConfig
 https://github.com/tsconfig/bases
 
 // Adicionar o paths alias no tsconfig
-  "paths": {
-    "@/*": ["./src/*"]
-  }
+"paths": {
+  "@/*": ["./src/*"]
+}
 
-npx @biomejs/biome init
-// https://biomejs.dev/guides/editors/first-party-extensions/#vs-code
+====================================================================
+Dependencias de produção
+npm i fastify @fastify/cors @fastify/swagger @scalar/fastify-api-reference fastify-type-provider-zod zod http-status-codes drizzle-orm drizzle-zod pg uuidv7
 
+====================================================================
+Biome
+https://biomejs.dev/pt-br/guides/getting-started/
+https://biomejs.dev/guides/editors/first-party-extensions/#vs-code
 
-// https://fastify.dev/
-// https://github.com/fastify/fastify-cors
-// https://github.com/fastify/fastify-swagger
-// https://github.com/scalar/scalar/tree/main/integrations/fastify
-// https://github.com/turkerdev/fastify-type-provider-zod
+====================================================================
+Fastify
+https://fastify.dev/
+https://github.com/fastify/fastify-cors
+https://github.com/fastify/fastify-swagger
+https://github.com/scalar/scalar/tree/main/integrations/fastify
+https://github.com/turkerdev/fastify-type-provider-zod
 
-npm i fastify @fastify/cors @fastify/swagger @scalar/fastify-api-reference fastify-type-provider-zod zod http-status-codes
+====================================================================
+Drizzle
+https://orm.drizzle.team/docs/get-started/postgresql-new
