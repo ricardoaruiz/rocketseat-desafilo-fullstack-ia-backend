@@ -10,6 +10,7 @@ import {
 } from 'fastify-type-provider-zod'
 import { listWebhooks } from './routes/list-webhooks'
 import { getWebHook } from './routes/get-webhook'
+import { deleteWebhookRoute } from './routes/delete-webhook'
 
 // Zod Type Provider
 const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -43,5 +44,6 @@ app.register(scalarApiReference, {
 // Routes
 app.register(getWebHook)
 app.register(listWebhooks)
+app.register(deleteWebhookRoute)
 
 export { app }
