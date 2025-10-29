@@ -1,8 +1,9 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { StatusCodes } from 'http-status-codes'
-import { z } from 'zod'
+import { z } from 'zod/v4'
 import { db } from '@/db'
 import { webhooks } from '@/db/schema'
+import { createSelectSchema } from 'drizzle-zod'
 
 export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
   app.get(
@@ -16,27 +17,14 @@ export const listWebhooks: FastifyPluginAsyncZod = async (app) => {
           limit: z.coerce.number().min(1).max(100).optional().default(20),
         }),
         response: {
-          [StatusCodes.OK]: z.object({
-            webhooks: z.array(
-              z.object({
-                id: z.string(),
-                method: z.string(),
-              }),
-            ),
-          }),
+          [StatusCodes.OK]: createSelectSchema(webhooks).array(),
         },
       },
     },
     async (_request, reply) => {
       const webhooksList = await db.select().from(webhooks)
-      console.log('🚀 ~ listWebhooks ~ webhooksList:', webhooksList)
 
-      return reply.send({
-        webhooks: [
-          { id: 'wh_1', method: 'POST' },
-          { id: 'wh_2', method: 'GET' },
-        ],
-      })
+      return reply.send(webhooksList)
     },
   )
 }
