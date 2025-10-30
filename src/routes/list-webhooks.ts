@@ -1,9 +1,9 @@
-import { desc, gt, isNull, lt, or } from 'drizzle-orm'
+import { desc, lt } from 'drizzle-orm'
 import { createSelectSchema } from 'drizzle-zod'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { StatusCodes } from 'http-status-codes'
 import { z } from 'zod/v4'
-import id from 'zod/v4/locales/id.js'
+
 import { db } from '@/db'
 import { webhooks } from '@/db/schema'
 
