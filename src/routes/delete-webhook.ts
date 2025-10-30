@@ -6,7 +6,7 @@ import { StatusCodes } from "http-status-codes";
 import z4 from "zod/v4";
 
 const DELETE_WEBHOOK_PARAMS_SCHEMA = z4.object({
-  id: z4.uuidv7().describe('The ID of the webhook to delete'),
+  id: z4.uuidv7().describe('The unique identifier of the webhook to be deleted'),
 });
 const DELETE_WEBHOOK_NOT_FOUND_RESPONSE_SCHEMA = z4.object({
   message: z4.string().describe('Error message indicating that the webhook was not found'),

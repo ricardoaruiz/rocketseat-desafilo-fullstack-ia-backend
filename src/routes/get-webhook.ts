@@ -7,7 +7,7 @@ import { StatusCodes } from "http-status-codes";
 import z from "zod/v4";
 
 const GET_WEBHOOK_PARAMS_SCHEMA = z.object({
-  id: z.uuidv7(),
+  id: z.uuidv7().describe("The unique identifier of the webhook"),
 });
 const GET_WEB_HOOK_SUCCESS_RESPONSE_SCHEMA = createSelectSchema(webhooks);
 const GET_WEB_HOOK_NOT_FOUND_RESPONSE_SCHEMA = z.object({
