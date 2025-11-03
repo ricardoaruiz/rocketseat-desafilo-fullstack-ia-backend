@@ -16,22 +16,26 @@ function generateStripeWebhook(
     '54.241.31.102',
   ]
 
-  const body = JSON.stringify({
-    id: eventId,
-    object: 'event',
-    api_version: '2020-08-27',
-    created: Math.floor(Date.now() / 1000),
-    type: eventType,
-    livemode: false,
-    pending_webhooks: 1,
-    request: {
-      id: `req_${Math.random().toString(36).substr(2, 9)}`,
-      idempotency_key: null,
+  const body = JSON.stringify(
+    {
+      id: eventId,
+      object: 'event',
+      api_version: '2020-08-27',
+      created: Math.floor(Date.now() / 1000),
+      type: eventType,
+      livemode: false,
+      pending_webhooks: 1,
+      request: {
+        id: `req_${Math.random().toString(36).substr(2, 9)}`,
+        idempotency_key: null,
+      },
+      data: {
+        object: dataObject,
+      },
     },
-    data: {
-      object: dataObject,
-    },
-  })
+    null,
+    2,
+  )
 
   return {
     method: 'POST',

@@ -31,3 +31,4 @@ https://github.com/turkerdev/fastify-type-provider-zod
 ====================================================================
 Drizzle
 https://orm.drizzle.team/docs/get-started/postgresql-new
+https://orm.drizzle.team/docs/zod
