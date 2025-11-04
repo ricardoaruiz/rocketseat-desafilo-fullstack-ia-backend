@@ -6,6 +6,7 @@ const ENV_SCHEMA = z.object({
     .default('development'),
   PORT: z.coerce.number().default(3333),
   DATABASE_URL: z.url(),
+  GOOGLE_GENERATIVE_AI_API_KEY: z.string().min(1),
 })
 
 export const env = ENV_SCHEMA.parse(process.env)
