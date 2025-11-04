@@ -10,6 +10,7 @@ import {
 } from 'fastify-type-provider-zod'
 import { captureWebHooks } from './routes/capture-webhook'
 import { deleteWebhookRoute } from './routes/delete-webhook'
+import { generateHandler } from './routes/generate-handler'
 import { getWebHook } from './routes/get-webhook'
 import { listWebhooks } from './routes/list-webhooks'
 
@@ -47,5 +48,6 @@ app.register(getWebHook)
 app.register(listWebhooks)
 app.register(deleteWebhookRoute)
 app.register(captureWebHooks)
+app.register(generateHandler)
 
 export { app }
